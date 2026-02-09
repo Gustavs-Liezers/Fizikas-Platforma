@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktīvā fizika – Gaismas laušana</title>
+
+  <link rel="stylesheet" href="kopejais_css.css">
+  <script src="gaismas_lausana.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="projekta.html" class="logo">Fizika</a>
+    <nav>
+      <a href="projekta_kede.html">Virknes slēgums</a>
+      <a href="gaismas_lausana.html">Gaismas laušana</a>
+      <a href="paraelslegums.html">Paraēlais slēgums</a>
+      <a href="elektromagnetiskie_vilni.html">Elektromagnētiskais vilnis</a>
+    </nav>
+  </header>
+
+  <h2>Gaismas laušana</h2>
+  
+
+  <div class="model-layout">
+
+    
+    <div class="scheme-box">
+      <canvas id="canvas" width="700" height="450"></canvas>
+    </div>
+
+    <div class="controls-box">
+
+      <div class="step-hint">
+        <strong>1. solis:</strong> Izvēlies materiālu<br>
+        <strong>2. solis:</strong> Iestati krišanas leņķi α<br>
+        <strong>3. solis:</strong> Novēro β un γ izmaiņas
+      </div>
+
+      <label>
+        Krišanas leņķis α (°):<br>
+        <input class="main-input" type="number" id="angleInput" value="30" step="1">
+      </label>
+
+      <label>
+        Izvēlies materiālu (n₂):<br>
+        <select id="materialSelect" class="main-select">
+          <option value="">-- Izvēlies --</option>
+          <option value="1.33">Ūdens</option>
+          <option value="1.31">Ledus</option>
+          <option value="1.52">Stikls</option>
+          <option value="1.47">Glicerīns</option>
+          <option value="2.40">Dimants</option>
+        </select>
+      </label>
+
+      <p>Laušanas koeficients n₂: <strong><span id="output">—</span></strong></p>
+      <p>Atstarošanas leņķis β: <strong><span id="reflectOut">—</span>°</strong></p>
+      <p>Laušanas leņķis γ: <strong><span id="angleOut">—</span>°</strong></p>
+
+      <div class="formula-box" id="formulaBox">n₁ sin(α) = n₂ sin(γ)</div>
+
+    </div>
+  </div>
+
+  <section class="content-section">
+    <h3>Kas ir šis interaktīvais mācību modelis?</h3>
+    <p>
+      Šis interaktīvais mācību modelis parāda gaismas staru uzvedību robežvirsmā starp divām vidēm,
+      piemēram, gaisu un ūdeni/stiklu. Modelī var novērot gan gaismas atstarošanos,
+      gan laušanos, kā arī to, kā mainās laušanas leņķis, ja maina krišanas leņķi vai materiālu.
+    </p>
+
+    <h3>Kā lietot?</h3>
+    <p>
+      Ievadi krišanas leņķi <strong>α</strong> un izvēlies materiālu (tiek izvēlēts tā laušanas koeficients <strong>n₂</strong>).
+      Modelis automātiski aprēķina atstarošanas leņķi <strong>β</strong> un laušanas leņķi <strong>γ</strong>,
+      un attēlo staru virzienu uz ekrāna.
+    </p>
+    <p>
+      Lai pētītu sakarības, maini leņķi pa soļiem (piemēram 10°, 20°, 30°…) un salīdzini,
+      kā vienādos apstākļos atšķiras laušanas leņķis dažādos materiālos.
+    </p>
+
+    <h3>Gaismas laušanas teorija</h3>
+    <p>
+      Gaismas laušana notiek, kad gaismas stars pāriet no vienas vides citā un mainās gaismas izplatīšanās ātrums.
+      Laušanas leņķis ir atkarīgs no abu vidi laušanas koeficientiem un krišanas leņķa.
+    </p>
+
+    <p>Atstarošanās likums nosaka, ka krišanas leņķis ir vienāds ar atstarošanas leņķi:</p>
+    <p>\[
+      \alpha = \beta
+    \]</p>
+
+    <p>
+      Laušanos apraksta Snelliusa likums. Ja pirmā vide ir gaiss, tad aptuveni \( n_1 \approx 1 \):
+    </p>
+    <p>\[
+      n_1 \sin(\alpha) = n_2 \sin(\gamma)
+    \]</p>
+
+    <p>
+      No šīs sakarības var secināt: jo lielāks ir materiāla laušanas koeficients \(n_2\),
+      jo vairāk gaismas stars laužas tuvāk perpendikulāram (laušanas leņķis \( \gamma \) kļūst mazāks).
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 • Interaktīvā fizikas mācību platforma<br>
+      Autors: Gustavs Liezers • 12. TEH klase
+    </p>
+  </footer>
+</body>
+</html>

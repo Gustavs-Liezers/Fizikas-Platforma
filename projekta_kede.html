@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktīvā fizika</title>
+  <link rel="stylesheet" href="kopejais_css.css">
+  <script src="projekta_kede.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>  <header>
+    <a href="projekta.html" class="logo">Fizika</a>
+    <nav>
+      <a href="projekta_kede.html">Virknes slēgums</a>
+      <a href="gaismas_lausana.html">Gaismas laušana</a>
+      <a href="paraelslegums.html">Paraēlais slēgums</a>
+      <a href="elektromagnetiskie_vilni.html">Elektromagnētiskais vilnis</a>
+    </nav>
+  </header>
+
+<h2>Elektriskās ķēdes virknes slēgums</h2>
+
+</p>
+
+<div class="model-layout">
+
+  <div class="scheme-box">
+    <svg width="600" height="500">
+      <!-- Vadi -->
+    <line x1="50" y1="100" x2="150" y2="100" stroke="#e05924" stroke-width="4" />
+    <line x1="430" y1="100" x2="550" y2="100" stroke="#e05924" stroke-width="4" />
+
+    <line x1="50" y1="100" x2="50" y2="300" stroke="#e05924" stroke-width="4" />
+    <line x1="550" y1="100" x2="550" y2="300" stroke="#e05924" stroke-width="4" />
+
+    <line x1="50" y1="300" x2="150" y2="300" stroke="#e05924" stroke-width="4" />
+    <line x1="450" y1="300" x2="550" y2="300" stroke="#e05924" stroke-width="4" />
+
+    <line x1="230" y1="100" x2="250" y2="100" stroke="#e05924" stroke-width="4" />
+    <line x1="330" y1="100" x2="350" y2="100" stroke="#e05924" stroke-width="4" />
+
+     <!-- Rezistori -->
+    <rect x="150" y="80" width="80" height="40" stroke="#00e5ff" fill="none" stroke-width="3" rx="5" />
+    <rect x="250" y="80" width="80" height="40" stroke="#00e5ff" fill="none" stroke-width="3" rx="5" />
+    <rect x="350" y="80" width="80" height="40" stroke="#00e5ff" fill="none" stroke-width="3" rx="5" />
+    
+  <!-- Polaritāte -->
+    <circle cx="450" cy="300" r="6" fill="#00e5ff" />
+    <text x="430" y="305" fill="#00e5ff">+</text>
+    <circle cx="150" cy="300" r="6" fill="#00e5ff" />
+    <text x="160" y="305" fill="#00e5ff">−</text>
+
+       <!-- Teksti -->
+    <text x="180" y="140" fill="#aaa">R₁ (Ω)</text>
+    <text x="280" y="140" fill="#aaa">R₂ (Ω)</text>
+    <text x="380" y="140" fill="#aaa">R₃ (Ω)</text>
+
+    
+    <!-- Ievades pretestībai -->
+    <foreignObject x="160" y="88" width="60" height="24">
+      <input type="number" id="r1" value="10" step="1"/>
+    </foreignObject>
+    <foreignObject x="260" y="88" width="60" height="24">
+      <input type="number" id="r2" value="20" step="1"/>
+    </foreignObject>
+    <foreignObject x="360" y="88" width="60" height="24">
+      <input type="number" id="r3" value="30" step="1"/>
+    </foreignObject>
+
+    </svg>
+  </div>
+
+ 
+  <div class="controls-box">
+
+    <div class="step-hint">
+      <strong>1. solis:</strong> Iestati rezistoru pretestības<br>
+      <strong>2. solis:</strong> Ievadi spriegumu <em>vai</em> strāvas stiprumu<br>
+      <strong>3. solis:</strong> Novēro rezultātus
+    </div>
+
+    <label>
+      Spriegums (V):<br>
+      <input class="main-input" type="number" id="voltage" value="0" step="1">
+    </label>
+
+    <label>
+      Strāvas stiprums (A):<br>
+      <input class="main-input" type="number" id="current" value="0" step="1">
+    </label>
+
+    <p>Kopējā pretestība: <strong><span id="rTotal">0</span> Ω</strong></p>
+
+    <div class="formula-box" id="formulaBox">
+      I = U / (R₁ + R₂ + R₃)
+    </div>
+
+  </div>
+
+</div>
+
+ <section class="content-section">
+
+
+  <h3>Kas ir šis interaktīvais mācību modelis?</h3>
+  <p>
+    Šis interaktīvais modelis attēlo elektriskās ķēdes virknes slēgumu, kurā rezistori ir savienoti viens aiz otra. Ļaujot pētīt sakarības starp spriegumu, strāvas stiprumu un pretestību.  Izmantojot interaktīvo moduli, iespējams praktiski pārbaudīt teorijā aplūkotās likumsakarības un novērot, kā elektriskās ķēdes lielumi mainās, ja tiek mainīti ķēdes parametri.
+  </p>
+
+  <h3>Kā lietot?</h3>
+  <p>
+   Interaktīvajā mācību modelī iespējams mainīt sprieguma, strāvas stipruma un pretestības vērtības. Rezistoru var izslēgt no ķēdes, iestatot tā pretestības vērtību uz 0. Mainot jebkuru no šiem lielumiem, pārējās vērtības tiek automātiski pārrēķinātas atbilstoši elektriskās ķēdes likumsakarībām. Formulas modelī tiek dinamiski atjauninātas katru reizi, ievadot jaunas vērtības. Lai atkal redzētu sākotnējo vispārīgo formulas pierakstu bez skaitliskām vērtībām, nepieciešams iestatīt strāvas stiprumu vai spriegumu uz 0.
+  </p>
+
+  <h3>Virknes slēguma teorija</h3>
+  <p>
+    Virknes slēgums ir elektriskās ķēdes savienojuma veids, kurā visi patērētāji
+    ir savienoti viens aiz otra. Tā kā strāvai ir tikai viens plūsmas ceļš,
+    strāvas stiprums visos ķēdes elementos ir vienāds:
+  </p>
+
+  <p>
+    \[
+    I = I_1 = I_2 = I_3
+    \]
+  </p>
+
+  <p>
+    Virknes slēgumā spriegums sadalās starp atsevišķajiem ķēdes elementiem,
+    un kopējais spriegums ir vienāds ar visu sprieguma kritumu summu:
+  </p>
+
+  <p>
+    \[
+    U = U_1 + U_2 + U_3
+    \]
+  </p>
+
+  <p>
+    Kopējo elektrisko pretestību virknes slēgumā aprēķina, saskaitot visu
+    rezistoru pretestības:
+  </p>
+
+  <p>
+    \[
+    R = R_1 + R_2 + R_3
+    \]
+  </p>
+
+  <p>
+    Strāvas stiprumu ķēdē aprēķina, izmantojot Oma likumu:
+  </p>
+
+  <p>
+    \[
+    I = \frac{U}{R}
+    \]
+  </p>
+
+  <p>
+    Sprieguma kritumu uz katra rezistora var aprēķināt pēc formulas:
+  </p>
+
+  <p>
+    \[
+    U_1 = I \cdot R_1,\quad
+    U_2 = I \cdot R_2,\quad
+    U_3 = I \cdot R_3
+    \]
+  </p>
+
+  <p>
+    Šis interaktīvais mācību modelis ļauj praktiski apstiprināt virknes slēguma
+    teorētiskās likumsakarības un palīdz labāk izprast elektrisko ķēžu darbību.
+  </p>
+
+</section>
+
+
+
+    <footer>
+  <p>
+    © 2026 • Interaktīvā fizikas mācību platforma<br>
+    Autors: Gustavs Liezers • 12. TEH klase
+  </p>
+</footer>
+
+    
+</body>
+</html>

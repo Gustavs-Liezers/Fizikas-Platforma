@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elektromagnētiskais vilnis (3D)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="elektromagnetiskie_vilni.js" defer></script>
+  <link rel="stylesheet" href="kopejais_css.css">
+</head>
+
+<body>
+  <header>
+    <a href="projekta.html" class="logo">Fizika</a>
+    <nav>
+      <a href="projekta_kede.html">Virknes slēgums</a>
+      <a href="gaismas_lausana.html">Gaismas laušana</a>
+      <a href="paraelslegums.html">Paraēlais slēgums</a>
+      <a href="elektromagnetiskie_vilni.html" class="active">Elektromagnētiskais vilnis</a>
+    </nav>
+  </header>
+
+  <h2>Elektromagnētiskais vilnis</h2>
+  
+
+  <section class="model-layout">
+    <div class="scheme-box em-scheme">
+      <canvas id="canvas" class="em-canvas"></canvas>
+    </div>
+
+    <aside class="controls-box em-controls">
+
+      <div class="step-hint">
+        <strong>1.</strong> Izvēlies frekvenci <em>f</em><br>
+        <strong>2.</strong> Ievadi viļņa ātrumu <em>v</em><br>
+        <strong>3.</strong> Novēro rezultātus un formulas
+      </div>
+
+      <label class="ctrl">
+        Frekvence f (MHz):
+        <input type="range" id="freq" min="10" max="300" step="1" value="60">
+        <div class="ctrl-row"><span>f</span><strong><span id="fOut">60</span> MHz</strong></div>
+      </label>
+
+      <label class="ctrl">
+        Viļņa ātrums v (m/s):
+        <input class="main-input" type="number" id="speed" value="300000000" step="1000000" min="0">
+        <div class="ctrl-row"><span>v</span><strong><span id="vOut">3.00e+08</span> m/s</strong></div>
+      </label>
+
+      <label class="ctrl">
+        Amplitūda A (vizualizācijai):
+        <input type="range" id="amp" min="0" max="10" step="0.1" value="5">
+        <div class="ctrl-row"><span>A</span><strong><span id="ampOut">5.0</span></strong></div>
+      </label>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="swatch swatch-e"></span>
+          <span><strong>E</strong> — elektriskais lauks (vertikālas bultiņas)</span>
+        </div>
+        <div class="legend-item">
+          <span class="swatch swatch-b"></span>
+          <span><strong>B</strong> — magnētiskais lauks (diagonālas bultiņas)</span>
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="btn" id="toggleBtn" type="button">Pauze</button>
+        <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div class="formula-box" id="formulaBox">
+        T = 1 / f<br><br>
+        λ = v / f<br><br>
+        λ = v · T
+      </div>
+
+      
+    </aside>
+  </section>
+  <section class="content-section">
+ <h3>Kas ir šis interaktīvais mācību modelis?</h3>
+  <p>
+    Šis interaktīvais mācību modelis attēlo elektromagnētisko vilni, kurā
+    elektriskais lauks <em>E</em> un magnētiskais lauks <em>B</em> izplatās telpā
+    viļņa veidā. Modelis ļauj pētīt sakarības starp viļņa frekvenci, periodu,
+    viļņa garumu un izplatīšanās ātrumu. Izmantojot interaktīvo simulāciju,
+    iespējams vizuāli un praktiski izprast elektromagnētiskā viļņa uzbūvi
+    un tā galvenās īpašības.
+  </p>
+
+  <h3>Kā lietot?</h3>
+  <p>
+    Interaktīvajā mācību modelī iespējams mainīt viļņa frekvenci <em>f</em>,
+    viļņa izplatīšanās ātrumu <em>v</em> un amplitūdu <em>A</em>.
+    Mainot frekvenci vai viļņa ātrumu, perioda un viļņa garuma vērtības
+    tiek automātiski pārrēķinātas atbilstoši elektromagnētisko viļņu
+    likumsakarībām. Amplitūda ietekmē tikai viļņa vizuālo attēlojumu.
+    Formulas modelī tiek dinamiski atjauninātas katru reizi, ievadot jaunas
+    vērtības. Lai atkal redzētu vispārīgo formulu pierakstu bez skaitliskām
+    vērtībām, nepieciešams iestatīt frekvenci vai viļņa ātrumu uz 0.
+  </p>
+
+  <h3>Elektromagnētiskā viļņa teorija</h3>
+  <p>
+    Elektromagnētiskais vilnis ir elektriskā un magnētiskā lauka svārstību
+    izplatīšanās telpā. Elektriskais lauks <em>E</em> un magnētiskais lauks
+    <em>B</em> svārstās savstarpēji perpendikulāri un ir perpendikulāri
+    viļņa izplatīšanās virzienam.
+  </p>
+
+  <p>
+    Elektromagnētiskā viļņa frekvence un periods ir savstarpēji saistīti
+    ar sekojošu sakarību:
+  </p>
+
+  <p>
+    \[
+    T = \frac{1}{f}
+    \]
+  </p>
+
+  <p>
+    Viļņa garums <em>λ</em> ir attālums starp diviem blakus esošiem viļņa
+    maksimumiem. To var aprēķināt, izmantojot viļņa ātrumu un frekvenci:
+  </p>
+
+  <p>
+    \[
+    \lambda = \frac{v}{f}
+    \]
+  </p>
+
+  <p>
+    Tā kā periods ir apgriezts lielums frekvencei, viļņa garumu var izteikt
+    arī kā viļņa ātruma un perioda reizinājumu:
+  </p>
+
+  <p>
+    \[
+    \lambda = v \cdot T
+    \]
+  </p>
+
+  <p>
+    Šis interaktīvais mācību modelis ļauj praktiski apstiprināt
+    elektromagnētisko viļņu teorētiskās likumsakarības un palīdz labāk
+    izprast elektromagnētiskā starojuma izplatīšanos telpā.
+  </p>
+
+
+ </section>
+
+      <footer>
+  <p>
+    © 2026 • Interaktīvā fizikas mācību platforma<br>
+    Autors: Gustavs Liezers • 12. TEH klase
+  </p>
+</footer>
+
+  
+</body>
+</html>
+
