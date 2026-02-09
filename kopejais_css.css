@@ -375,3 +375,95 @@ header{
   font-family:monospace;
   text-align:center;
 }
+
+/* =========================
+   MOBILE UI FIX (phones)
+   ielīmē šo faila pašās beigās
+   ========================= */
+
+@media (max-width: 600px){
+
+  /* Kopējie atstarpju labojumi */
+  .page, .home-layout, .content-section{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Header + navigācija: lai nav milzīgs un lai linki ir ērti spiežami */
+  header{
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .logo{
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+  nav{
+    gap: 8px;
+    justify-content: center;
+  }
+  nav a{
+    padding: 9px 10px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  /* Galvenais izkārtojums: no 2 kolonnām uz 1 kolonnu */
+  .model-layout{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+    margin: 16px auto 12px;
+  }
+
+  /* Shēmas kaste: lai aizpilda platumu un nav "desktop kaste" */
+  .scheme-box{
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* Kontroles: lai aizpilda platumu (nevis fiksēti 320px) */
+  .controls-box,
+  .controls-box.em-controls{
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  /* Ja ķēde ir SVG/canvas: piespied responsīvu platumu */
+  .scheme-box svg,
+  .scheme-box canvas,
+  .em-canvas{
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* SVG foreignObject input: lai nav pārāk mazi un ir viegli spiežami */
+  foreignObject input{
+    width: 64px;
+    font-size: 0.95rem;
+  }
+
+  /* Pogas/slīdņi: lielāks touch target */
+  button, .btn, input, select, .main-select{
+    min-height: 44px;
+  }
+
+  /* Virsraksti: mazliet mazāki, lai nav milzīgi telefonā */
+  h2{ margin: 18px 0 0; font-size: 20px; }
+  .page-title{ margin-top: 16px; }
+  .page-subtitle{ margin-top: 6px; }
+
+  /* EM viļņa kaste: lai nav fiksēta augstuma sajūta */
+  .em-box{
+    width: 100%;
+    max-width: 100%;
+    height: 320px; /* vari mainīt uz 280/360 pēc gaumes */
+  }
+}
